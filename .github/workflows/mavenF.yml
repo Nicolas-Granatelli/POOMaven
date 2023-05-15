@@ -32,10 +32,8 @@ jobs:
       name: Deploy Docker image
       with:
           image: nicolasgs/aula_maven_f
-          tags: 1.0
+          tags: 1.0, ${{ github.run_number }}, ${{ steps.generate_number.outputs.VERSION }}
           registry: docker.io
           dockerfile: dockerfile
-          username: nicolasgs
+          username: ${{ secrets.DOCKER_USUARIO }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          
-          
