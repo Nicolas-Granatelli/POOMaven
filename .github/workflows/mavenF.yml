@@ -37,3 +37,4 @@ jobs:
           dockerfile: dockerfile
           username: ${{ secrets.DOCKER_USUARIO }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
