@@ -28,6 +28,23 @@ jobs:
     - name: Run Program - Java
       run: java -cp target/classes org.example.Main
     
+    - name: Git Version
+      uses: codacy/git-version@2.4.0
+      with:
+        release-branch: main
+        prefix: QA-
+        
+    - name: Git Version
+      id: version
+      uses: codacy/git-version@2.7.1
+      
+    - name: Use the version
+      run: |
+         echo ${{ steps.version.outputs.version }}
+    - name: Use the previous version
+      run: |
+        echo ${{ steps.version.outputs.previous-version }}
+        
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Deploy Docker image
       with:
